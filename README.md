@@ -84,4 +84,21 @@
       Java 的反射技术和多态特性是框架开发、组件解耦的核心，在这方面，Spring 的 IOC 和 DI 为
       我们提供了一个极好的学习范例，Spring 的 IOC 使用反射技术创建、管理对象，DI 使用多态技
       术为组件注入依赖对象。
+
+      @Service
+
+      public class Test{
+			@Autowired
+			@Qualifier("swan ")
+			private Animal swan; //通过@Qualifier("swan")，先将Animal的实现类指向Peaclck，再注入
+			
+			@Autowired
+			@Qualifier("peacock “)
+			private Animal peacock; //通过@Qualifier("peacock")，先将Animal的实现类指向Peaclck，再注入
+
+      说明：@Autowired 结合@Qualifier 可以实现按照名称来注入，如果不给每个实现类指定@Qualifier，
+      在注入的过程会报以下异常:
+			No qualifying bean of type Animal is defined: expected single matching bean but found 2
+	  因为接口Animal有多个不同的实现类，spring容器不知道要给你注入哪个实现类，所以需要加上@Qualifier，加以区分
+}
 </pre>
