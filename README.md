@@ -102,3 +102,19 @@
 	  因为接口Animal有多个不同的实现类，spring容器不知道要给你注入哪个实现类，所以需要加上@Qualifier，加以区分
 }
 </pre>
+
+![](https://i.imgur.com/X1Pkm8V.png)
+
+<pre>
+Spring IOC容器反射
+
+      Spring反射: Class.forName().newInstance()
+
+      Spring使用步骤：
+          1.找到配置文件
+          2.加载配置文件
+          3.解析配置文件中的bean元素，并识别id和class
+          5.通过反射（Class.forName().newInstance()）创建这个bean的实例
+          6.将id作为key、实例作为value存放进Spring容器中
+          7.getBean取出实例
+</pre>
